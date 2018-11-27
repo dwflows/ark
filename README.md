@@ -1,4 +1,3 @@
-# ark
-Ark Server Configurations
+# Ark Server Configurations
 
 Setting can be found here https://ark.gamepedia.com/Server_Configuration
