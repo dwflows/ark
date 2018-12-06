@@ -105,3 +105,6 @@ WORKDIR /ark
 
 # Update game launch the game.
 ENTRYPOINT ["/home/steam/user.sh"]
+
+# Use for testing
+### ENTRYPOINT ["/bin/bash"]
