@@ -1,6 +1,6 @@
-FROM ubuntu:14.04
+FROM ubuntu:18.04
 
-MAINTAINER TuRzAm
+MAINTAINER dwflows
 
 # Var for first config
 # Server Name
@@ -12,7 +12,7 @@ ENV SERVERPASSWORD ""
 # Admin password
 ENV ADMINPASSWORD "adminpassword"
 # Nb Players
-ENV NBPLAYERS 70
+ENV NBPLAYERS 10
 # If the server is updating when start with docker start
 ENV UPDATEONSTART 1
 # if the server is backup when start with docker start
@@ -34,7 +34,7 @@ ENV GID 1000
 
 # Install dependencies 
 RUN apt-get update &&\ 
-    apt-get install -y curl lib32gcc1 lsof git
+    apt-get install -y curl lib32gcc1 lsof git sudo perl-modules libc6-i386 bzip2 rsync findutils
 
 # Enable passwordless sudo for users under the "sudo" group
 RUN sed -i.bkp -e \
