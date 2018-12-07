@@ -2,10 +2,14 @@
 
 Setting can be found here https://ark.gamepedia.com/Server_Configuration
 
-Short Description
+## Short Description
+
 Docker for ARK: Survival Evolved
-Full Description
+
+## Full Description
+
 ARK: Survival Evolved - Docker
+
 Docker build for managing an ARK: Survival Evolved server.
 
 This image uses Ark Server Tools to manage an ark server.
@@ -13,15 +17,16 @@ This image uses Ark Server Tools to manage an ark server.
 If you use an old volume, get the new arkmanager.cfg in the template directory.
 Don't forget to use docker pull turzam/ark to get the latest version of the image
 
-Features
-Easy install (no steamcmd / lib32... to install)
-Use Ark Server Tools : update/install/start/backup/rcon/mods
-Easy crontab configuration
-Easy access to ark config file
-Mods handling (via Ark Server Tools)
-Docker stop is a clean stop
-Usage
-Fast & Easy server setup :
+###Features
+*Easy install (no steamcmd / lib32... to install)
+*Use Ark Server Tools : update/install/start/backup/rcon/mods
+*Easy crontab configuration
+*Easy access to ark config file
+*Mods handling (via Ark Server Tools)
+*Docker stop is a clean stop
+
+###Usage
+###Fast & Easy server setup :
 docker run -d -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -e SESSIONNAME=myserver -e ADMINPASSWORD="mypasswordadmin" --name ark turzam/ark
 
 You can map the ark volume to access config files :
