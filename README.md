@@ -17,7 +17,7 @@ This image uses Ark Server Tools to manage an ark server.
 If you use an old volume, get the new arkmanager.cfg in the template directory.
 Don't forget to use docker pull turzam/ark to get the latest version of the image
 
-###Features
+Features
 *Easy install (no steamcmd / lib32... to install)
 *Use Ark Server Tools : update/install/start/backup/rcon/mods
 *Easy crontab configuration
@@ -25,8 +25,8 @@ Don't forget to use docker pull turzam/ark to get the latest version of the imag
 *Mods handling (via Ark Server Tools)
 *Docker stop is a clean stop
 
-###Usage
-###Fast & Easy server setup :
+Usage
+Fast & Easy server setup :
 docker run -d -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -e SESSIONNAME=myserver -e ADMINPASSWORD="mypasswordadmin" --name ark turzam/ark
 
 You can map the ark volume to access config files :
@@ -76,44 +76,64 @@ You can check this website for more information on cron.
 To add mods, you only need to change the variable ark_GameModIds in arkmanager.cfg with a list of your modIds (like this ark_GameModIds="987654321,1234568"). If UPDATEONSTART is enable, just restart your docker or use docker exec ark arkmanager update --update-mods.
 
 Recommended Usage
+
 First run
 docker run -it -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -p 32330:32330 -e SESSIONNAME=myserver -e ADMINPASSWORD="mypasswordadmin" -e AUTOUPDATE=120 -e AUTOBACKUP=60 -e WARNMINUTE=30 -v /my/path/to/ark:/ark --name ark turzam/ark
+
 Wait for ark to be downloaded installed and launched, then Ctrl+C to stop the server.
 Edit /my/path/to/ark/GameUserSetting.ini and Game.ini
 Edit /my/path/to/ark/arkserver.cfg to add mods and configure warning time.
+
 Add auto update every day and autobackup by editing /my/path/to/ark/crontab with this lines :
 0 0 * * * arkmanager update --warn --update-mods >> /ark/log/crontab.log 2>&1
 0 0 * * * arkmanager backup >> /ark/log/crontab.log 2>&1
+
 docker start ark
+
 Check your server with :
 docker exec ark arkmanager status
+
 Variables
+
 SESSIONNAME
 Name of your ark server (default : "Ark Docker")
+
 SERVERMAP
 Map of your ark server (default : "TheIsland")
+
 SERVERPASSWORD
 Password of your ark server (default : "")
+
 ADMINPASSWORD
 Admin password of your ark server (default : "adminpassword")
+
 SERVERPORT
 Ark server port (can't rebind with docker, it doesn't work) (default : 27015)
+
 STEAMPORT
 Steam server port (can't rebind with docker, it doesn't work) (default : 7778)
+
 BACKUPONSTART
 1 : Backup the server when the container is started. 0: no backup (default : 1)
+
 UPDATEPONSTART
 1 : Update the server when the container is started. 0: no update (default : 1)
+
 BACKUPONSTOP
 1 : Backup the server when the container is stopped. 0: no backup (default : 0)
+
 WARNONSTOP
 1 : Warn the players before the container is stopped. 0: no warning (default : 0)
+
 TZ
 Time Zone : Set the container timezone (for crontab). (You can get your timezone posix format with the command tzselect. For example, France is "Europe/Paris").
+
 UID
 UID of the user used. Owner of the volume /ark
+
 GID
 GID of the user used. Owner of the volume /ark
+
 Volumes
 /ark : Working directory :
 /ark/server : Server files and data.
@@ -127,6 +147,7 @@ Volumes
 /ark/template/arkmanager.cfg : default config file for Ark Server Tools
 /ark/template/crontab : default config file for crontab
 /ark/staging : default directory if you use the --downloadonly option when updating.
+
 Expose
 Port : STEAMPORT : Steam port (default: 7778)
 Port : SERVERPORT : server port (default: 27015)
