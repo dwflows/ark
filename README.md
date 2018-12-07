@@ -66,10 +66,10 @@ You can check all available command for arkmanager [here](https://github.com/Fez
 
 You can easily configure automatic update and backup.  If you edit the file /my/path/to/ark/crontab you can add your crontab job.  
 For example :  
-`#Update the server every hours  
-0 * * * * arkmanager update --warn --update-mods >> /ark/log/crontab.log 2>&1  
-#Backup the server each day at 00:00  
-0 0 * * * arkmanager backup >> /ark/log/crontab.log 2>&1`
+> #Update the server every hours
+> 0 * * * * arkmanager update --warn --update-mods >> /ark/log/crontab.log 2>&1  
+> #Backup the server each day at 00:00
+> 0 0 * * * arkmanager backup >> /ark/log/crontab.log 2>&1
 
 To add mods, you only need to change the variable `ark_GameModIds` in `arkmanager.cfg` with a list of your modIds (like this ark_GameModIds="987654321,1234568"). If `UPDATEONSTART` is enable, just restart your docker or use docker exec ark arkmanager update --update-mods.
 
