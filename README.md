@@ -27,7 +27,7 @@ If you use an old volume, get the new arkmanager.cfg in the template directory. 
 **You can map the ark volume to access config files:**  
 `docker run -d -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -e SESSIONNAME=myserver -v /my/path/to/ark:/ark --name ark turzam/ark`
 
-Then you can edit /my/path/to/ark/arkmanager.cfg (the values override GameUserSetting.ini) and /my/path/to/ark/[GameUserSetting.ini/Game.ini] _Ark Server Configurations_ Setting can be found [here](https://ark.gamepedia.com/Server_Configuration)
+Then you can edit /my/path/to/ark/arkmanager.cfg (the values override GameUserSetting.ini) and /my/path/to/ark/[GameUserSetting.ini/Game.ini] **Ark Server Configurations** Setting can be found [here](https://ark.gamepedia.com/Server_Configuration)
 
 **You can manager your server with rcon if you map the rcon port (you can rebind the rcon port with docker):**  
 `docker run -d -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -p 32330:32330 -e SESSIONNAME=myserver --name ark turzam/ark`
@@ -54,22 +54,21 @@ Then you can edit /my/path/to/ark/arkmanager.cfg (the values override GameUserSe
 **You can upgrade Ark Server Tools:**  
 `docker exec ark arkmanager upgrade-tools`
 
-**You can use rcon command via docker:**  
+**You can use rcon command via docker:** Full list of available command [here](http://steamcommunity.com/sharedfiles/filedetails/?id=454529617&searchtext=admin)     
 `docker exec ark arkmanager rconcmd ListPlayers`  
-Full list of available command [here](http://steamcommunity.com/sharedfiles/filedetails/?id=454529617&searchtext=admin)
 
-You can check all available command for arkmanager [here](https://github.com/FezVrasta/ark-server-tools)
+You can check all available command for [arkmanager](https://github.com/FezVrasta/ark-server-tools)
 
 You can easily configure automatic update and backup.  If you edit the file /my/path/to/ark/crontab you can add your crontab job.  
 For example:  
-> #Update the server every hours  
+> # Update the server every hours  
 > 0 * * * * arkmanager update --warn --update-mods >> /ark/log/crontab.log 2>&1  
-> #Backup the server each day at 00:00  
+> # Backup the server each day at 00:00  
 > 0 0 * * * arkmanager backup >> /ark/log/crontab.log 2>&1  
 
 To add mods, you only need to change the variable `ark_GameModIds` in `arkmanager.cfg` with a list of your modIds (like this ark_GameModIds="987654321,1234568"). If `UPDATEONSTART` is enable, just restart your docker or use docker exec ark arkmanager update --update-mods.
 
-#### Recommended Usage
+##### Recommended Usage
 
 *First run*  
 `docker run -it -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -p 32330:32330 -e SESSIONNAME=myserver -e ADMINPASSWORD="mypasswordadmin" -e AUTOUPDATE=120 -e AUTOBACKUP=60 -e WARNMINUTE=30 -v /my/path/to/ark:/ark --name ark turzam/ark`
