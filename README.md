@@ -17,13 +17,13 @@ This image uses Ark Server Tools to manage an ark server.
 If you use an old volume, get the new arkmanager.cfg in the template directory.
 Don't forget to use docker pull turzam/ark to get the latest version of the image
 
-Features
-*Easy install (no steamcmd / lib32... to install)
-*Use Ark Server Tools : update/install/start/backup/rcon/mods
-*Easy crontab configuration
-*Easy access to ark config file
-*Mods handling (via Ark Server Tools)
-*Docker stop is a clean stop
+### Features
+* Easy install (no steamcmd / lib32... to install)
+* Use Ark Server Tools : update/install/start/backup/rcon/mods
+* Easy crontab configuration
+* Easy access to ark config file
+* Mods handling (via Ark Server Tools)
+* Docker stop is a clean stop
 
 Usage
 Fast & Easy server setup :
