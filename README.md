@@ -1,6 +1,6 @@
 # Ark Server Configurations
 
-Setting can be found here https://ark.gamepedia.com/Server_Configuration
+Setting can be found [here](https://ark.gamepedia.com/Server_Configuration)
 
 ## Short Description
 
