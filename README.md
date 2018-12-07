@@ -27,11 +27,7 @@ If you use an old volume, get the new arkmanager.cfg in the template directory. 
 **You can map the ark volume to access config files:**  
 `docker run -d -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -e SESSIONNAME=myserver -v /my/path/to/ark:/ark --name ark turzam/ark`
 
-Then you can edit /my/path/to/ark/arkmanager.cfg (the values override GameUserSetting.ini) and /my/path/to/ark/[GameUserSetting.ini/Game.ini]
-
-**Ark Server Configurations**  
-Setting can be found [here](https://ark.gamepedia.com/Server_Configuration)
-
+Then you can edit /my/path/to/ark/arkmanager.cfg (the values override GameUserSetting.ini) and /my/path/to/ark/[GameUserSetting.ini/Game.ini] _Ark Server Configurations_ Setting can be found [here](https://ark.gamepedia.com/Server_Configuration)
 
 **You can manager your server with rcon if you map the rcon port (you can rebind the rcon port with docker):**  
 `docker run -d -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -p 32330:32330 -e SESSIONNAME=myserver --name ark turzam/ark`
