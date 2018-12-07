@@ -12,7 +12,7 @@ ARK: Survival Evolved - Docker
 
 Docker build for managing an ARK: Survival Evolved server.
 
-This image uses [Ark Server Tools | https://github.com/FezVrasta/ark-server-tools] to manage an ark server.
+This image uses [Ark Server Tools](https://github.com/FezVrasta/ark-server-tools) to manage an ark server.
 
 If you use an old volume, get the new arkmanager.cfg in the template directory. Don't forget to use docker pull turzam/ark to get the latest version of the image
 
@@ -59,22 +59,21 @@ Then you can edit /my/path/to/ark/arkmanager.cfg (the values override GameUserSe
 `docker exec ark arkmanager upgrade-tools`
 
 **You can use rcon command via docker:**  
-`docker exec ark arkmanager rconcmd ListPlayers`
+`docker exec ark arkmanager rconcmd ListPlayers`  
+Full list of available command [here](http://steamcommunity.com/sharedfiles/filedetails/?id=454529617&searchtext=admin)
 
-Full list of available command here[http://steamcommunity.com/sharedfiles/filedetails/?id=454529617&searchtext=admin]
-
-You can check all available command for arkmanager here[https://github.com/FezVrasta/ark-server-tools]
+You can check all available command for arkmanager [here](https://github.com/FezVrasta/ark-server-tools)
 
 You can easily configure automatic update and backup.  If you edit the file /my/path/to/ark/crontab you can add your crontab job.  
 For example :  
-#Update the server every hours  
+`#Update the server every hours  
 0 * * * * arkmanager update --warn --update-mods >> /ark/log/crontab.log 2>&1  
 #Backup the server each day at 00:00  
-0 0 * * * arkmanager backup >> /ark/log/crontab.log 2>&1  
+0 0 * * * arkmanager backup >> /ark/log/crontab.log 2>&1`
 
-To add mods, you only need to change the variable ark_GameModIds in arkmanager.cfg with a list of your modIds (like this ark_GameModIds="987654321,1234568"). If UPDATEONSTART is enable, just restart your docker or use docker exec ark arkmanager update --update-mods.
+To add mods, you only need to change the variable `ark_GameModIds` in `arkmanager.cfg` with a list of your modIds (like this ark_GameModIds="987654321,1234568"). If `UPDATEONSTART` is enable, just restart your docker or use docker exec ark arkmanager update --update-mods.
 
-Recommended Usage
+#### Recommended Usage
 
 First run  
 `docker run -it -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -p 32330:32330 -e SESSIONNAME=myserver -e ADMINPASSWORD="mypasswordadmin" -e AUTOUPDATE=120 -e AUTOBACKUP=60 -e WARNMINUTE=30 -v /my/path/to/ark:/ark --name ark turzam/ark`
