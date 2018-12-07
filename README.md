@@ -40,11 +40,11 @@ You can change server and steam port to allow multiple servers on same host:
 (You can't just rebind the port with docker. It won't work, you need to change STEAMPORT & SERVERPORT variable)
 docker run -d -p 7779:7779 -p 7779:7779/udp -p 27016:27016 -p 27016:27016/udp -p 32331:32330 -e SESSIONNAME=myserver2 -e SERVERPORT=27016 -e STEAMPORT=7779 --name ark2 turzam/ark
 
-You can check your server with :  
-docker exec ark arkmanager status
+*You can check your server with :  *
+`docker exec ark arkmanager status`
 
 You can manually update your mods:  
-docker exec ark arkmanager update --update-mods
+_docker exec ark arkmanager update --update-mods_
 
 You can manually update your server:  
 docker exec ark arkmanager update --force
