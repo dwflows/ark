@@ -54,10 +54,11 @@ Then you can edit /my/path/to/ark/arkmanager.cfg (the values override GameUserSe
 **You can upgrade Ark Server Tools:**  
 `docker exec ark arkmanager upgrade-tools`
 
-**You can use rcon command via docker:** Full list of available command [here](http://steamcommunity.com/sharedfiles/filedetails/?id=454529617&searchtext=admin)     
+**You can use rcon command via docker:**
 `docker exec ark arkmanager rconcmd ListPlayers`  
 
-You can check all available command for [arkmanager](https://github.com/FezVrasta/ark-server-tools)
+Click for [admin server commands](http://steamcommunity.com/sharedfiles/filedetails/?id=454529617&searchtext=admin)
+Click for [arkmanager commands](https://github.com/FezVrasta/ark-server-tools)
 
 You can easily configure automatic update and backup.  If you edit the file /my/path/to/ark/crontab you can add your crontab job.  
 For example:  
