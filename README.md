@@ -1,7 +1,3 @@
-# Ark Server Configurations
-
-Setting can be found [here](https://ark.gamepedia.com/Server_Configuration)
-
 ## Short Description
 
 Docker for ARK: Survival Evolved
@@ -32,6 +28,10 @@ If you use an old volume, get the new arkmanager.cfg in the template directory. 
 `docker run -d -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -e SESSIONNAME=myserver -v /my/path/to/ark:/ark --name ark turzam/ark`
 
 Then you can edit /my/path/to/ark/arkmanager.cfg (the values override GameUserSetting.ini) and /my/path/to/ark/[GameUserSetting.ini/Game.ini]
+
+**Ark Server Configurations**  
+Setting can be found [here](https://ark.gamepedia.com/Server_Configuration)
+
 
 **You can manager your server with rcon if you map the rcon port (you can rebind the rcon port with docker):**  
 `docker run -d -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -p 32330:32330 -e SESSIONNAME=myserver --name ark turzam/ark`
@@ -65,7 +65,7 @@ Full list of available command [here](http://steamcommunity.com/sharedfiles/file
 You can check all available command for arkmanager [here](https://github.com/FezVrasta/ark-server-tools)
 
 You can easily configure automatic update and backup.  If you edit the file /my/path/to/ark/crontab you can add your crontab job.  
-For example :  
+For example:  
 > #Update the server every hours  
 > 0 * * * * arkmanager update --warn --update-mods >> /ark/log/crontab.log 2>&1  
 > #Backup the server each day at 00:00  
@@ -75,21 +75,21 @@ To add mods, you only need to change the variable `ark_GameModIds` in `arkmanage
 
 #### Recommended Usage
 
-*First run*
+*First run*  
 `docker run -it -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -p 32330:32330 -e SESSIONNAME=myserver -e ADMINPASSWORD="mypasswordadmin" -e AUTOUPDATE=120 -e AUTOBACKUP=60 -e WARNMINUTE=30 -v /my/path/to/ark:/ark --name ark turzam/ark`
 
-*Wait for ark to be downloaded installed and launched, then Ctrl+C to stop the server.*
+*Wait for ark to be downloaded installed and launched, then Ctrl+C to stop the server.*  
 * Edit /my/path/to/ark/GameUserSetting.ini and Game.ini
 * Edit /my/path/to/ark/arkserver.cfg to add mods and configure warning time.
 
-*Add auto update every day and autobackup by editing /my/path/to/ark/crontab with this lines:*
+*Add auto update every day and autobackup by editing /my/path/to/ark/crontab with this lines:*  
 `0 0 * * * arkmanager update --warn --update-mods >> /ark/log/crontab.log 2>&1  
 0 0 * * * arkmanager backup >> /ark/log/crontab.log 2>&1`
 
-*Then run:*
+*Then run:*  
 `docker start ark`
 
-*Check your server with:*
+*Check your server with:*  
 `docker exec ark arkmanager status`
 
 ### Variables
