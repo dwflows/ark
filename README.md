@@ -40,26 +40,26 @@ You can change server and steam port to allow multiple servers on same host:
 (You can't just rebind the port with docker. It won't work, you need to change STEAMPORT & SERVERPORT variable)
 docker run -d -p 7779:7779 -p 7779:7779/udp -p 27016:27016 -p 27016:27016/udp -p 32331:32330 -e SESSIONNAME=myserver2 -e SERVERPORT=27016 -e STEAMPORT=7779 --name ark2 turzam/ark
 
-*You can check your server with :  *
+**You can check your server with :  **
 `docker exec ark arkmanager status`
 
-You can manually update your mods:  
-_docker exec ark arkmanager update --update-mods_
+**You can manually update your mods:  **
+`docker exec ark arkmanager update --update-mods`
 
 You can manually update your server:  
-docker exec ark arkmanager update --force
+`docker exec ark arkmanager update --force`
 
 You can force save your server :  
-docker exec ark arkmanager saveworld
+`docker exec ark arkmanager saveworld`
 
 You can backup your server :  
-docker exec ark arkmanager backup
+`docker exec ark arkmanager backup`
 
 You can upgrade Ark Server Tools :  
-docker exec ark arkmanager upgrade-tools
+`docker exec ark arkmanager upgrade-tools`
 
 You can use rcon command via docker :  
-docker exec ark arkmanager rconcmd ListPlayers
+`docker exec ark arkmanager rconcmd ListPlayers`
 
 Full list of available command here
 
@@ -78,7 +78,7 @@ To add mods, you only need to change the variable ark_GameModIds in arkmanager.c
 Recommended Usage
 
 First run  
-docker run -it -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -p 32330:32330 -e SESSIONNAME=myserver -e ADMINPASSWORD="mypasswordadmin" -e AUTOUPDATE=120 -e AUTOBACKUP=60 -e WARNMINUTE=30 -v /my/path/to/ark:/ark --name ark turzam/ark
+`docker run -it -p 7778:7778 -p 7778:7778/udp -p 27015:27015 -p 27015:27015/udp -p 32330:32330 -e SESSIONNAME=myserver -e ADMINPASSWORD="mypasswordadmin" -e AUTOUPDATE=120 -e AUTOBACKUP=60 -e WARNMINUTE=30 -v /my/path/to/ark:/ark --name ark turzam/ark`
 
 Wait for ark to be downloaded installed and launched, then Ctrl+C to stop the server.
 
